@@ -9,7 +9,7 @@ import android.util.Log
 import android.webkit.MimeTypeMap
 import com.facebook.react.BuildConfig
 import com.facebook.react.bridge.*
-import net.gotev.uploadservice.UploadService
+import net.gotev.uploadservice.UploadWorker
 import net.gotev.uploadservice.UploadServiceConfig.httpStack
 import net.gotev.uploadservice.UploadServiceConfig.initialize
 import net.gotev.uploadservice.data.UploadNotificationConfig
@@ -281,7 +281,7 @@ class UploaderModule(val reactContext: ReactApplicationContext) : ReactContextBa
       return
     }
     try {
-      UploadService.stopUpload(cancelUploadId)
+      UploadWorker.stopUpload(cancelUploadId)
       promise.resolve(true)
     } catch (exc: java.lang.Exception) {
       exc.printStackTrace()
@@ -296,7 +296,7 @@ class UploaderModule(val reactContext: ReactApplicationContext) : ReactContextBa
   @ReactMethod
   fun stopAllUploads(promise: Promise) {
     try {
-      UploadService.stopAllUploads()
+      UploadWorker.stopAllUploads()
       promise.resolve(true)
     } catch (exc: java.lang.Exception) {
       exc.printStackTrace()

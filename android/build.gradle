@@ -11,6 +11,7 @@ buildscript {
     repositories {
         mavenCentral()
         google()
+        maven { url 'https://jitpack.io' }
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:8.0.2'
@@ -51,6 +52,7 @@ android {
 
 repositories {
     mavenCentral()
+    maven { url 'https://jitpack.io' }
 }
 
 def _ext = ext
@@ -65,7 +67,8 @@ dependencies {
 
     implementation "org.jetbrains.kotlin:$_kotlinStdlib:$_kotlinVersion"
 
-    implementation 'net.gotev:uploadservice-okhttp:4.9.2'
+//    implementation 'net.gotev:uploadservice-okhttp:4.9.2'
+    implementation 'com.github.tomit87:android-upload-service:master'
 
     implementation 'androidx.swiperefreshlayout:swiperefreshlayout:1.0.0'
 }
